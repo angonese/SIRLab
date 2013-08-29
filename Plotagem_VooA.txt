@@ -1,0 +1,20 @@
+arq = 'Voo.txt'
+arq2 = 'Bola.txt'
+set grid
+set key
+set xlabel "X"
+set ylabel "Y"
+set grid mxtics
+set grid mytics
+set title "Simulação de IEEE VSS"
+set xrange [:30]
+set yrange [:25]
+
+plot arq2 using 1:2 t "waypoint 1" lc rgb "red" pt 4
+replot arq2 using 3:4 t "waypoint 2" lc rgb "blue" pt 4
+replot arq2 using 5:6 t "waypoint 3" lc rgb "green" pt 4
+
+
+replot arq using 1:2 t"VANT 1" with linespoints lc rgb "red" pt 9
+replot arq using 3:4 t"VANT 2" with linespoints lc rgb "blue" pt 9
+replot arq using 5:6 t"VANT 3" with linespoints lc rgb "green" pt 9

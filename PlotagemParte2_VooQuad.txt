@@ -1,0 +1,23 @@
+set grid
+set key
+set xlabel "X"
+set ylabel "Y"
+set grid mxtics
+set grid mytics
+set title "Simulação de Voo em Formação"
+set yrange [:30]
+
+arq = 'Voo.txt'
+arq2 = 'Waypoints.txt'
+
+plot arq2 using 1:2 t "waypoint 1" lc rgb "red" pt 4
+replot arq2 using 3:4 t "waypoint 2" lc rgb "blue" pt 4
+replot arq2 using 5:6 t "waypoint 3" lc rgb "green" pt 4
+replot arq2 using 7:8 t "waypoint 4" lc rgb "black" pt 4
+
+
+i=9
+
+replot arq every i using 1:2 t "VANT 1" lc rgb "red" pt 9, arq every i using 3:4 t "VANT 2" lc rgb "blue" pt 9, arq every i using 5:6 t "VANT 3" lc rgb "green" pt 9, arq every i using 7:8 t "VANT 4" lc rgb "black" pt 9
+
+

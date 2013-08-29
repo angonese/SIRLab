@@ -1,0 +1,30 @@
+set grid
+set key
+set xlabel "X"
+set ylabel "Y"
+set grid mxtics
+set grid mytics
+set title "Simulação de Voo - Formação em Quadrado"
+set xrange [:15]
+set yrange [:15]
+
+arq = 'Voo7_Smin_0.1_Smax_2.txt'
+arq2 = 'Waypoints.txt'
+
+plot arq2 using 1:2 lc rgb "red" pt 4
+replot arq2 using 3:4 lc rgb "blue" pt 4
+replot arq2 using 5:6 lc rgb "green" pt 4
+
+pause 4
+
+
+unset key
+replot arq every ::0::0 using 1:2 with linespoints lc rgb "red" pt 9, arq every ::0::0 using 3:4 with linespoints lc rgb "blue" pt 9, arq every ::0::0 using 5:6 with linespoints lc rgb "green" pt 9
+pause 0.5
+i=1
+
+while(i<49){
+replot arq every ::i::i using 1:2 with linespoints lc rgb "red" pt 9, arq every ::i::i using 3:4 with linespoints lc rgb "blue" pt 9, arq every ::i::i using 5:6 with linespoints lc rgb "green" pt 9
+pause 0.2
+i=i+1
+}
